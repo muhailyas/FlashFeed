@@ -23,3 +23,8 @@ class RemoteArticlesDone extends RemoteArticleState {
 class RemoteArticlesError extends RemoteArticleState {
   const RemoteArticlesError(DioException error) : super(error: error);
 }
+
+class CategorySelectedState extends RemoteArticleState {
+  final int selectedIndex;
+  const CategorySelectedState({required this.selectedIndex});
+}

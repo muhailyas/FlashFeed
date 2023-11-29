@@ -21,18 +21,17 @@ dependencies:
   #dateFormat
   intl: ^0.18.1
 
-  #Database
-  floor: ^1.4.2
 
   #make request to api
   retrofit: ^4.0.3
 
-  #Hooks
-  flutter_hooks: ^0.20.3
-
   #cached image
   cached_network_image: ^3.3.0
+  
+  # HTTP Requests
   dio: ^5.3.3
+
+  #state management
   bloc: ^8.1.2
   flutter_bloc: ^8.1.3
 

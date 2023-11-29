@@ -11,6 +11,7 @@ class RemoteArticlesBlco extends Bloc<RemoteArticlesEvent, RemoteArticleState> {
   RemoteArticlesBlco(this._getArticleUseCase)
       : super(const RemoteArticleLoading()) {
     on<RemoteArticlesEvent>(remoteArticlesEvent);
+    on<SelectCategoryEvent>(selectCategoryEvent);
   }
 
   FutureOr<void> remoteArticlesEvent(
@@ -22,5 +23,10 @@ class RemoteArticlesBlco extends Bloc<RemoteArticlesEvent, RemoteArticleState> {
     if (dataState is DataFailed) {
       emit(RemoteArticlesError(dataState.error!));
     }
+  }
+
+  FutureOr<void> selectCategoryEvent(
+      SelectCategoryEvent event, Emitter<RemoteArticleState> emit) {
+    emit(CategorySelectedState(selectedIndex: event.selectedIndex));
   }
 }
