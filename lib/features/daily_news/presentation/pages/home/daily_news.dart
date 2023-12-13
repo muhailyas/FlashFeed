@@ -109,6 +109,49 @@ class DailyNews extends StatelessWidget {
                   itemCount: state.articles!.length,
                   itemBuilder: (context, index) {
                     final news = state.articles![index];
+                    if (index == 0) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
+                        child: Material(
+                          elevation: 1,
+                          borderRadius: BorderRadius.circular(15),
+                          child: Container(
+                            height: 300,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 220,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(15),
+                                          topRight: Radius.circular(15)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(news.urlToImage!),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 5),
+                                  child: Text(
+                                    news.title!,
+                                    style: const TextStyle(
+                                        fontSize: 21,
+                                        fontWeight: FontWeight.w500),
+                                    maxLines: 3,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }
                     return InkWell(
                         onTap: () {
                           Navigator.push(
